@@ -26,6 +26,7 @@ PerfAssert.That((MyTestClass target) => target.Treatment(), BenchmarkRunCache.In
 Your benchmarks themselves must be `public` instance methods annotated with
 ```C#
 [PerfBenchmark]
+// NOTE - this 'assertion' will NOT be executed by this engine, it's only used to tell NBench what to measure/collect
 [ElapsedTimeAssertion] // Or any other of the NBench assertions
 ```
 I'd like to remove this constraint, but it's there today.
