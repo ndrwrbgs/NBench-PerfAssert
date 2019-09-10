@@ -23,6 +23,12 @@ PerfAssert.That((MyTestClass target) => target.Treatment(), BenchmarkRunCache.In
 PerfAssert.That((MyTestClass target) => target.Treatment(), BenchmarkRunCache.Instance)
     .Is().NotWorseRuntimeThan((MyTestClass target) => target.Baseline());
 ```
+Your benchmarks themselves must be `public` instance methods annotated with
+```C#
+[PerfBenchmark]
+[ElapsedTimeAssertion] // Or any other of the NBench assertions
+```
+I'd like to remove this constraint, but it's there today.
 
 Generally you'll start with `PerfAssert.That()`, `.Is()` is a utility method for legibility, and does nothing. Extension methods available for the result of `PerfAssert.That()` have xmldoc comments that will show you what they can do, and until/unless the API becomes cemented in stone, this will be the preferred way to identify the usage.
 
