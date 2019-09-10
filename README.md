@@ -26,5 +26,5 @@ PerfAssert.That((MyTestClass target) => target.Treatment(), BenchmarkRunCache.In
 
 Generally you'll start with `PerfAssert.That()`, `.Is()` is a utility method for legibility, and does nothing. Extension methods available for the result of `PerfAssert.That()` have xmldoc comments that will show you what they can do, and until/unless the API becomes cemented in stone, this will be the preferred way to identify the usage.
 
-### Future work
+## Future work
 Ideally, the engine running the tests would be hidden beneath the covers, and the `PerfAssert` API could be applied to multiple runners. This may come in the future, but isn't worth the investment presently as we only have one implementation.
